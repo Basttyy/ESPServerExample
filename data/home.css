@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.listsContainer {
+    display: flex;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.sideNav {
+    background-image: linear-gradient(to bottom right, rgb(46, 48, 126), white);
+    display: flex;
+    align-items: center;
+}
+
+.sideNavList {
+    list-style: none;
+}
+
+.sideNavList li {
+    padding: 20px 120px;
+    border-left: 6px solid transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sideNavList li:hover {
+    cursor: pointer;
+}
+
+.body {
+    flex: 1;
+    overflow-y: scroll;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 5px;
+    box-shadow: 0 10px 25px rgba(46, 48, 125, .2);
+}
+
+.dropdownIcon {
+    color: white;
+    cursor: pointer;
+}
+
+button {
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(46, 48, 126);
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.clicked {
+    border-left: 6px solid rgb(46, 48, 126) !important;
+    background-color: white;
+}
+
+.dropdownList:hover {
+    background-color: rgba(46, 48, 125, .2);
+}
+
+.hideNavbar {
+    box-shadow: 0 10px 25px rgba(46, 48, 125, .2);
+    display: none;
+}
+
+.showNavbar {
+    display: block;
+}
+
+.showNavbar ul {
+    list-style: none;
+}
+
+.showNavbar ul li {
+    padding: 10px 20px;
+}
+
+.pageHeader {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+ 
+h3 {
+    margin: 0 auto;
+}
+
+.smsDiv {
+    max-width: fit-content;
+    margin: 30px 100px;
+}
+
+.errorDiv {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.otaDiv {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.formContainer {
+    background-color:rgba(83, 80, 80, 0.8);
+    width: 450px;
+    margin: 0 auto;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.container {
+    padding: 0 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputField {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.inputFile {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+}
+
+button {
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 10px 0;
+    background-color: rgb(134, 189, 214);
+}
+
+button:hover {
+    background-image: linear-gradient(to bottom right, rgb(134, 189, 214), rgb(131, 196, 240));    
+    cursor: pointer;
+}
+
+.text {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.text:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.smsModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.textModal {
+    background-image: linear-gradient(to bottom right, rgb(46, 48, 126), white);
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    margin: 250px auto;
+}
+
+.pageNumber {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+a {
+    font-size: 14px;
+    padding: 3px 10px;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+}
+
+.highlightedNumber {
+    color: white;
+    background-color: rgb(46, 48, 126);
+}
+
+@media screen and ( max-width : 992px ) {
+    .sideNav {
+        display: none;
+    }
+
+    .dropdownIcon {
+        color: black;
+    }
+}

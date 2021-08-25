@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loginContainer {
+    height: 100vh;
+    padding-top: 150px;
+    background-image: url('/backgroud.jpg');
+}
+
+.formContainer {
+    background-color:rgba(0, 0, 0, 0.8);
+    width: 450px;
+    margin: 0 auto;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-transform: capitalize;
+    color: white;
+}
+
+.container {
+    padding: 0 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputField {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.inputText {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 20px 0;
+    background-color: rgb(134, 189, 214);
+}
+
+button:hover {
+    background-image: linear-gradient(to bottom right, rgb(134, 189, 214), rgb(131, 196, 240));    
+    cursor: pointer;
+}
+
+.loginFooter {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.loginModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.textModal {
+    background-image: linear-gradient(to bottom right, rgb(46, 48, 126), white);
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    margin: 250px auto;
+}

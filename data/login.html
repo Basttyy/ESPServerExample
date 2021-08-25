@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <title>A2C Login Page</title>
+  </head>
+  <body>
+    <div class="loginContainer">
+      <form action="/login" method="POST" class="formContainer">
+        <header><h1>login</h1></header>
+        <div class="container">
+          <div class="inputField">
+            <label for="userName"><b>Username</b></label>
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              class="inputText"
+              required
+            />
+          </div>
+          <div class="inputField">
+            <label for="password"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              class="inputText"
+              required
+            />
+          </div>
+          <input
+            type="hidden"
+            name="activenav"
+            id="activenav"
+          />
+          <button type='submit' name='Submit' value='Submit'>Login</button>
+          <div class="loginFooter">
+            <label>
+              <input type="checkbox" name="remember" />
+              Remember me
+            </label>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </div>
+      </form>
+      <div class="loginModal">
+        <div class="textModal">
+          <div class="modalHeader">
+            <h2 id="alertheader"></h2>
+            <div class="close" onclick="closeModal()">x</div>
+          </div>
+          <p id="alertbody"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="login.js"></script>
+</html>

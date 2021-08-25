@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" />
+    <title>Lists Page</title>
+  </head>
+  <body>
+    <div class="listsContainer">
+      <div class="sideNav">
+        <ul class="sideNavList">
+          <li class="navItem1" onclick="displaySMSList()">sms</li>
+          <li class="navItem2" onclick="displayErrorList()">error</li>
+          <li class="navItem3" onclick="displayOtaForm()">ota</li>
+        </ul>
+      </div>
+      <div class="body">
+        <nav>
+          <div class="dropdownIcon" id="dropdownIcon" onclick="showDropdown()" >v</div>
+          <div class="pageHeader" id="pageHeader">SMS List</div>
+          <button class="logOutBtn" onclick="window.location.href='/logout'">log out</button>
+        </nav>
+        <div id="hideNavbar" class="hideNavbar">
+          <ul class="sideNavList">
+            <li class="navItem1 dropdownList" onclick="displaySMSList()">sms</li>
+            <li class="navItem2 dropdownList" onclick="displayErrorList()">error</li>
+            <li class="navItem3 dropdownList" onclick="displayOtaForm()">ota</li>
+          </ul>
+        </div>
+        <div class="smsDiv">
+            <div id="smsDetails">
+              <div>
+                <button id="syncButton">Synchronize Simbank</button>
+                <button id="delButton">Delete selected row</button>
+              </div>
+              <table id="smsTable" class="display" width="100%"></table>
+            </div>
+            <!-- <div id="paginationNumbers" class="pageNumber"></div> -->
+        </div>
+        <div class="otaDiv">
+          <div id="smsDetails">
+            <form action="/" method="POST" enctype="multipart/form-data" class="formContainer">
+              <!-- <header><h1>Select a file and click upload</h1></header> -->
+              <div class="container">
+                <div class="inputField">
+                  <label for="userName"><b>Select the binary file and click on Upload</b></label>
+                  <input
+                    type="file"
+                    placeholder="Select Binary"
+                    name="firmware"
+                    accept=".hex,.bin"
+                    class="inputFile"
+                    required
+                  />
+                </div>
+                <button type='submit' name='Submit' value='Submit'>Upload Firmware</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="errorDiv">
+          <div class="text" onclick="displaySMSDetails()">
+            <h5>ERROR</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
+              deleniti corrupti animi assumenda aperiam dolore ducimus nemo
+              atque quisquam ratione.
+            </p>
+          </div>
+          <div class="text" onclick="displaySMSDetails()">
+            <h5>ERROR</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
+              deleniti corrupti animi assumenda aperiam dolore ducimus nemo
+              atque quisquam ratione.
+            </p>
+          </div>
+          <div class="text" onclick="displaySMSDetails()">
+            <h5>ERROR</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
+              deleniti corrupti animi assumenda aperiam dolore ducimus nemo
+              atque quisquam ratione.
+            </p>
+          </div>
+        </div>
+        <div class="smsModal">
+          <div class="textModal">
+            <div class="modalHeader">
+              <h2>MTN</h2>
+              <div class="close" onclick="closeModal()">x</div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+              rerum dolorem accusantium et officiis adipisci quod sapiente
+              ratione similique reiciendis temporibus vitae blanditiis
+              perspiciatis, beatae in tempore nisi facere! Voluptates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+  <script src="home.js"></script>
+</html>
