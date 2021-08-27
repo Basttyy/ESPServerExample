@@ -8,7 +8,7 @@ const navItem3 = document.querySelector(".navItem3")
 const pageHeader = document.querySelector("#pageHeader")
 var smsTable
 var errorTable
-let base_url = "http://simbank1.local"
+let base_url = window.location.origin
 let data_url = base_url + "/api/table-data"
 let error_url = base_url + '/api/error'
 let sms_url = base_url + '/api/sms'
@@ -21,15 +21,19 @@ if (!!window.EventSource) {
     }, false);
 
     source.addEventListener('error', function(e) {
-     if (e.target.readyState != EventSource.OPEN) {
-       console.log("Events Disconnected");
-     }
+        if (e.target.readyState != EventSource.OPEN) {
+        console.log("Events Disconnected");
+        }
     }, false);
+
+    source.addEventListener('ping', function(e) {
+        console.log("Ping Event", e.data);
+    });
 
     source.addEventListener('exception', function(e) {
         let error = []
         data = json.parse(e.data)
-        console.log("message", data.message);
+        console.log("exception event: ", data.message);
         error.push(data.id)
         error.push(data.message)
         error.push(data.trace)
@@ -42,8 +46,8 @@ if (!!window.EventSource) {
         errorTable.row.add(error).draw()
     })
     
-    source.addEventListener('message', function(e) {
-     console.log("message", e.data);
+    source.addEventListener('sms', function(e) {
+     console.log("sms event: ", e.data);
         let sms = []
         //var message = base64Decode(e.data)
         // message = message.replace('aaaa', '')
@@ -66,7 +70,8 @@ if (!!window.EventSource) {
         smsTable.row.add(sms).draw()
 
         // if (items.length > 4) {
-        //     items_array = items[3]
+        //     items_array = items[3].split("+04")
+
         //     items[3] = items_array[0]
         //     items[4] = items_array[1]
 
@@ -233,6 +238,20 @@ $(document).ready(function() {
     }).catch (error => {
         alert("Unable to fetch SMS and exceptions data from hardware: "+ error)
     })
+    // response.text = [
+    //     "smss" : [
+    //         [ id, address, provider, message,   ],
+    //         [   ],
+    //         [   ],
+    //         [   ],
+    //     ],
+    //     "exceptions" : [
+    //         [],
+    //         [],
+    //         [],
+    //         [],
+    //     ]
+    // ]
 
     smsTable = $('#smsTable').DataTable( {
         data: json.parse(localStorage.getItem('smsData')),

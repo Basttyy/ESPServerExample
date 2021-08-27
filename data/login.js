@@ -22,7 +22,6 @@ $(document).ready(function() {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const message = urlSearchParams.get('msg');
     document.getElementById('activenav').value() = urlSearchParams.get('activenav');
-
     if (urlSearchParams.has('msg') && message != '') {
         headar.innerHtml = "Alert";
         bodi.innerHtml = message;

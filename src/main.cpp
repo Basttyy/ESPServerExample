@@ -1,13 +1,3 @@
-/*********
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp8266-nodemcu-web-server-sent-events-sse/
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-*********/
 #include "template.h"
 
 void setup() {
@@ -36,7 +26,7 @@ void setup() {
 }
 
 void loop() {
-  MDNS.update();
+  //MDNS.update();
   if ((millis() - lastTime) > timerDelay) {
     getSensorReadings();
     // Serial.printf("Temperature = %.2f ºC \n", temperature);
@@ -45,10 +35,10 @@ void loop() {
     // Serial.println();
 
     // Send Events to the Web Server with the Sensor Readings
-    events.send("ping",NULL,millis());
-    events.send(String(temperature).c_str(),"temperature",millis());
-    events.send(String(humidity).c_str(),"humidity",millis());
-    events.send(String(pressure).c_str(),"pressure",millis());
+    events.send("ping","ping",millis());
+    // events.send(String(temperature).c_str(),"temperature",millis());
+    // events.send(String(humidity).c_str(),"humidity",millis());
+    // events.send(String(pressure).c_str(),"pressure",millis());
     
     lastTime = millis();
   }
@@ -159,6 +149,7 @@ void loginController(AsyncWebServerRequest *request) {
         Serial.println(token);
         response->addHeader("Set-Cookie", "ESPSESSIONID=" + token);
         request->send(response);
+        lastSession = millis();
         Serial.println("Log in Successful");
         return;
       }
@@ -251,7 +242,7 @@ void authenticateUpload(AsyncWebServerRequest *request) {
   if (!is_authenticated(request)) {
     Serial.println(F("Go on not login!"));
     AsyncWebServerResponse *response = request->beginResponse(301); //Sends 301 redirect
-    response->addHeader("Location", "/login?msg=Please login to visit home page&to-page=home&active-nav=ota");
+    response->addHeader("Location", "/login?msg=Please login to upload a file&to-page=home&active-nav=ota");
     response->addHeader("Cache-Control", "no-cache");
     response->addHeader("Set-Cookie", "ESPSESSIONID=0");
     request->send(response);
@@ -447,7 +438,6 @@ int openDb(char *filename, sqlite3 **db) {
    return rc;
 }
 
-char *zErrMsg = 0;
 int db_exec(sqlite3 *db, const char *sql) {
    Serial.println(sql);
    long start = micros();
@@ -462,3 +452,22 @@ int db_exec(sqlite3 *db, const char *sql) {
    Serial.println(micros()-start);
    return rc;
 }
+
+// if (items.length > 4) {
+//     items_array = items[3].split("+04")
+
+//     items[3] = items_array[0]
+//     items[4] = items_array[1]
+
+    
+//     smsDataSet = JSON.parse(localStorage.getItem('smsData'))
+//     localStorage.removeItem('smsData')
+//     sms.push(e.data.id)
+//     sms.push(items[1].replace('\"', ''))
+//     sms.push(items[2].replace('\"', ''))
+//     sms.push('20'+ items[3].replace('-', ''))
+//     sms.push(items[4].replace('\"', ''))
+//     smsDataSet.push(sms)
+//     localStorage.setItem('smsData', JSON.stringify(smsDataSet))
+//     smsTable.row.add(sms).draw()
+// }

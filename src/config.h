@@ -8,11 +8,11 @@
 #include <ESP8266WiFi.h>
 #include <ESPAsyncTCP.h>
 #include <ESP8266mDNS.h>
-#include <sqlite3.h>
 #include <vfs.h>
 #include <Hash.h>
 #include <FS.h>
 #endif
+#include <sqlite3.h>
 #include <ESPAsyncWebServer.h>
 
 #define SESSION_TIMEOUT 1000*60*10

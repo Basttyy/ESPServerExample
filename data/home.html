@@ -39,11 +39,10 @@
               </div>
               <table id="smsTable" class="display" width="100%"></table>
             </div>
-            <!-- <div id="paginationNumbers" class="pageNumber"></div> -->
         </div>
         <div class="otaDiv">
           <div id="smsDetails">
-            <form action="/" method="POST" enctype="multipart/form-data" class="formContainer">
+            <form action="/uploadbin" method="POST" enctype="multipart/form-data" class="formContainer">
               <!-- <header><h1>Select a file and click upload</h1></header> -->
               <div class="container">
                 <div class="inputField">
@@ -63,30 +62,14 @@
           </div>
         </div>
         <div class="errorDiv">
-          <div class="text" onclick="displaySMSDetails()">
-            <h5>ERROR</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
-              deleniti corrupti animi assumenda aperiam dolore ducimus nemo
-              atque quisquam ratione.
-            </p>
+          <div id="errorDetails">
+            <div>
+              <button id="syncButton">Synchronize Simbank</button>
+              <button id="delButton">Delete selected row</button>
+            </div>
+            <table id="smsTable" class="display" width="100%"></table>
           </div>
-          <div class="text" onclick="displaySMSDetails()">
-            <h5>ERROR</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
-              deleniti corrupti animi assumenda aperiam dolore ducimus nemo
-              atque quisquam ratione.
-            </p>
-          </div>
-          <div class="text" onclick="displaySMSDetails()">
-            <h5>ERROR</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
-              deleniti corrupti animi assumenda aperiam dolore ducimus nemo
-              atque quisquam ratione.
-            </p>
-          </div>
+          <!-- <div id="paginationNumbers" class="pageNumber"></div> -->
         </div>
         <div class="smsModal">
           <div class="textModal">
